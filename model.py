@@ -76,7 +76,7 @@ def T_conv_bn_max(edge_feature, kernel=2, activation_fn='relu'):
     # net = TimeDistributed(BatchNormalization(axis=-1))(net) # BatchNorm, can be enabled
     if activation_fn is not None:
         net = TimeDistributed(Activation(activation_fn))(net)
-    return TimeDistributed(Lambda(lambda x: tf.reduce_max(x, axis=-2, keep_dims=True)))(net)
+    return TimeDistributed(Lambda(lambda x: tf.reduce_max(x, axis=-2, keepdims=True)))(net)
 
 def T_edge_conv(point_cloud_series, graph, kernel=2, activation_fn='relu', k=5):
 #     """TimeDistributed conv with max as aggregation,
